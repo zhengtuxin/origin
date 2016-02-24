@@ -44,6 +44,7 @@ public class Concat extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String uri = request.getRequestURI();
 		if (request.getQueryString() != null) {
 			uri = uri + "?" + request.getQueryString();
@@ -73,6 +74,10 @@ public class Concat extends HttpServlet {
 			sb.append(FileUtil.readFile(cms_template + fileArray[i]));
 		}
 		response.setContentType("application/x-javascript;charset=UTF-8");
+		if(uri.contains(".css")){
+			response.setContentType("text/css;charset=UTF-8");
+		}
+		
 		response.getWriter().append(sb);
 	}
 }

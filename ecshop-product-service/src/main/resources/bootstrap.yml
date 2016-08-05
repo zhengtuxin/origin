@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ecshop-product-service
+  profiles:
+    active: dev
